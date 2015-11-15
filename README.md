@@ -1,4 +1,4 @@
-##To do:
+#To do:
 go to Inventor training session
 draw preliminary sketches for remote 
 create a use case
@@ -6,12 +6,12 @@ create GUI on MATLAB
 3D print that
 
 
-#Current problems:
+##Current problems:
 * Too many buttons
 * Size of buttons
 * Wording on buttons - HDMI, AUX
 
-#What’s necessary:
+##What’s necessary:
 * Way to navigate channels - numbers, circular scrolling thing? (old iPod)
 * Changing inputs - DVD, VCR, cable, etc.
 * Menu, undo, settings
@@ -20,7 +20,7 @@ create GUI on MATLAB
 * On/off
 * Guide/Info access (press once to display info)
 
-#Ideas:
+##Ideas:
 * Number on a separate sliding board
 * Backlit circular scroll buttons
 * Volume button, w/ circular scroll button
@@ -30,9 +30,9 @@ create GUI on MATLAB
 * Can also be used to scroll through menu
 * Can be pressed down
 
-##Notes
+#Notes
 
-#10/16
+##10/16
 Criteria: 
 Must fit print job in 2 hours and fit in set volume of makerbot mini 
 Download makerbot desktop 
