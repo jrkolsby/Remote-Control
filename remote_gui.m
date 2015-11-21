@@ -22,7 +22,7 @@ function varargout = remote_gui(varargin)
 
 % Edit the above text to modify the response to help remote_gui
 
-% Last Modified by GUIDE v2.5 21-Nov-2015 13:04:00
+% Last Modified by GUIDE v2.5 21-Nov-2015 13:40:16
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -239,5 +239,20 @@ function pushbutton23_Callback(hObject, eventdata, handles)
 % --- Executes on button press in pushbutton24.
 function pushbutton24_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton24 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- If Enable == 'on', executes on mouse press in 5 pixel border.
+% --- Otherwise, executes on mouse press in 5 pixel border or over pushbutton1.
+function pushbutton1_ButtonDownFcn(hObject, eventdata, handles)
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function Untitled_1_Callback(hObject, eventdata, handles)
+% hObject    handle to Untitled_1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
