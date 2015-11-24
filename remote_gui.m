@@ -22,7 +22,7 @@ function varargout = remote_gui(varargin)
 
 % Edit the above text to modify the response to help remote_gui
 
-% Last Modified by GUIDE v2.5 21-Nov-2015 13:40:16
+% Last Modified by GUIDE v2.5 23-Nov-2015 01:26:45
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -95,114 +95,127 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
 end
 
 
-% --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
+% --- Executes on button press in power.
+function power_Callback(hObject, eventdata, handles)
+% hObject    handle to power (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+if (strcmp(get(handles.baseScreen, 'Visible'),'on'))
+    set(handles.baseScreen, 'Visible', 'off');
+else
+    set(handles.baseScreen, 'Visible', 'on');
+end
+
+% --- Executes on button press in menu.
+function menu_Callback(hObject, eventdata, handles)
+% hObject    handle to menu (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+if (strcmp(get(handles.mainMenu, 'Visible'),'on'))
+    set(handles.mainMenu, 'Visible', 'off');
+else
+    set(handles.mainMenu, 'Visible', 'on');
+end
+
+% --- Executes on button press in channel.
+function channel_Callback(hObject, eventdata, handles)
+% hObject    handle to channel (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+if (strcmp(get(handles.channels, 'Visible'),'on'))
+    set(handles.channels, 'Visible', 'off');
+else
+    set(handles.channels, 'Visible', 'on');
+end
+
+
+% --- Executes on button press in volume.
+function volume_Callback(hObject, eventdata, handles)
+% hObject    handle to volume (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton2.
-function pushbutton2_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton2 (see GCBO)
+% --- Executes on button press in input.
+function input_Callback(hObject, eventdata, handles)
+% hObject    handle to input (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton3.
-function pushbutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton3 (see GCBO)
+% --- Executes on button press in one.
+function one_Callback(hObject, eventdata, handles)
+% hObject    handle to one (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton4.
-function pushbutton4_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton4 (see GCBO)
+% --- Executes on button press in two.
+function two_Callback(hObject, eventdata, handles)
+% hObject    handle to two (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton5.
-function pushbutton5_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton5 (see GCBO)
+% --- Executes on button press in three.
+function three_Callback(hObject, eventdata, handles)
+% hObject    handle to three (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton7.
-function pushbutton7_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton7 (see GCBO)
+% --- Executes on button press in four.
+function four_Callback(hObject, eventdata, handles)
+% hObject    handle to four (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton8.
-function pushbutton8_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton8 (see GCBO)
+% --- Executes on button press in five.
+function five_Callback(hObject, eventdata, handles)
+% hObject    handle to five (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton9.
-function pushbutton9_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton9 (see GCBO)
+% --- Executes on button press in six.
+function six_Callback(hObject, eventdata, handles)
+% hObject    handle to six (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton10.
-function pushbutton10_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton10 (see GCBO)
+% --- Executes on button press in eight.
+function eight_Callback(hObject, eventdata, handles)
+% hObject    handle to eight (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton11.
-function pushbutton11_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton11 (see GCBO)
+% --- Executes on button press in seven.
+function seven_Callback(hObject, eventdata, handles)
+% hObject    handle to seven (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton12.
-function pushbutton12_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton12 (see GCBO)
+% --- Executes on button press in nine.
+function nine_Callback(hObject, eventdata, handles)
+% hObject    handle to nine (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton14.
-function pushbutton14_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton14 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes on button press in pushbutton15.
-function pushbutton15_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton15 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes on button press in pushbutton16.
-function pushbutton16_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton16 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes on button press in pushbutton17.
-function pushbutton17_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton17 (see GCBO)
+% --- Executes on button press in zero.
+function zero_Callback(hObject, eventdata, handles)
+% hObject    handle to zero (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
 % --- Executes on slider movement.
-function slider4_Callback(hObject, eventdata, handles)
-% hObject    handle to slider4 (see GCBO)
+function toggle_Callback(hObject, eventdata, handles)
+% hObject    handle to toggle (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -211,8 +224,8 @@ function slider4_Callback(hObject, eventdata, handles)
 
 
 % --- Executes during object creation, after setting all properties.
-function slider4_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider4 (see GCBO)
+function toggle_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to toggle (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -222,9 +235,9 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
 end
 
 
-% --- Executes on button press in pushbutton22.
-function pushbutton22_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton22 (see GCBO)
+% --- Executes on button press in select.
+function select_Callback(hObject, eventdata, handles)
+% hObject    handle to select (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -236,17 +249,17 @@ function pushbutton23_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton24.
-function pushbutton24_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton24 (see GCBO)
+% --- Executes on button press in undo.
+function undo_Callback(hObject, eventdata, handles)
+% hObject    handle to undo (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
 % --- If Enable == 'on', executes on mouse press in 5 pixel border.
-% --- Otherwise, executes on mouse press in 5 pixel border or over pushbutton1.
-function pushbutton1_ButtonDownFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
+% --- Otherwise, executes on mouse press in 5 pixel border or over power.
+function power_ButtonDownFcn(hObject, eventdata, handles)
+% hObject    handle to power (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -256,3 +269,49 @@ function Untitled_1_Callback(hObject, eventdata, handles)
 % hObject    handle to Untitled_1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on selection change in listbox1.
+function listbox1_Callback(hObject, eventdata, handles)
+% hObject    handle to listbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns listbox1 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from listbox1
+
+
+% --- Executes during object creation, after setting all properties.
+function listbox1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to listbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in listbox2.
+function listbox2_Callback(hObject, eventdata, handles)
+% hObject    handle to listbox2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns listbox2 contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from listbox2
+
+
+% --- Executes during object creation, after setting all properties.
+function listbox2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to listbox2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
