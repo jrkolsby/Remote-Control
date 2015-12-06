@@ -22,7 +22,7 @@ function varargout = remote_gui(varargin)
 
 % Edit the above text to modify the response to help remote_gui
 
-% Last Modified by GUIDE v2.5 23-Nov-2015 01:26:45
+% Last Modified by GUIDE v2.5 05-Dec-2015 16:30:54
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -294,19 +294,21 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on selection change in listbox2.
-function listbox2_Callback(hObject, eventdata, handles)
-% hObject    handle to listbox2 (see GCBO)
+% --- Executes on selection change in channelList.
+function channelList_Callback(hObject, eventdata, handles)
+% hObject    handle to channelList (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns listbox2 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from listbox2
-
+% Hints: contents = cellstr(get(hObject,'String')) returns channelList contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from channelList
+a = get(handles.channelList, 'Value');
+disp(a);
+set(handles.infobox, 'String', strcat('Channel: ', int2str(a)));
 
 % --- Executes during object creation, after setting all properties.
-function listbox2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to listbox2 (see GCBO)
+function channelList_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to channelList (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
