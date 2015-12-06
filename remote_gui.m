@@ -1,3 +1,4 @@
+global tv;
 function varargout = remote_gui(varargin)
 % REMOTE_GUI MATLAB code for remote_gui.fig
 %      REMOTE_GUI, by itself, creates a new REMOTE_GUI or raises the existing

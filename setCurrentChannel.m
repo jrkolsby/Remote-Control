@@ -1,4 +1,4 @@
 function setCurrentChannel(val)
-global currentChannel
-currentChannel = val;
+global tv.currentChannel
+tv.currentChannel = val;
 end
