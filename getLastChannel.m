@@ -1,4 +1,4 @@
 function r = getLastChannel()
-global tv.lastChannel;
+global tv;
 r = tv.lastChannel;
 end

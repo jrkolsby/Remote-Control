@@ -8,7 +8,7 @@ function varargout = remote_gui(varargin)
 %      the existing singleton*.
 %
 %      REMOTE_GUI('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in REMOTE_GUI.M with the given inputPanel arguments.
+%      function named CALLBACK in REMOTE_GUI.M with the given input arguments.
 %
 %      REMOTE_GUI('Property','Value',...) creates a new REMOTE_GUI or raises the
 %      existing singleton*.  Starting from the left, property value pairs are
@@ -23,7 +23,7 @@ function varargout = remote_gui(varargin)
 
 % Edit the above text to modify the response to help remote_gui
 
-% Last Modified by GUIDE v2.5 06-Dec-2015 20:11:50
+% Last Modified by GUIDE v2.5 06-Dec-2015 18:36:43
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -73,6 +73,28 @@ function varargout = remote_gui_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
+
+% --- Executes on slider movement.
+function slider1_Callback(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function slider1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
 % --- Executes on button press in power.
 function power_Callback(hObject, eventdata, handles)
 % hObject    handle to power (see GCBO)
@@ -85,7 +107,6 @@ global tv;
 tv.channelSelected = false;
 tv.volumeSelected = false;
 tv.inputSelected = false;
-set(handles.inputPanel, 'Visible', 'off');
 if (strcmp(get(handles.baseScreen, 'Visible'),'on'))
     set(handles.baseScreen, 'Visible', 'off');
 else
@@ -133,16 +154,12 @@ else
     tv.volumeSelected = false;
 end
 
-% --- Executes on button press in inputPanel.
+% --- Executes on button press in input.
 function input_Callback(hObject, eventdata, handles)
-% hObject    handle to inputPanel (see GCBO)
+% hObject    handle to input (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-if (strcmp(get(handles.inputPanel, 'Visible'),'on'))
-    set(handles.inputPanel, 'Visible', 'off');
-else
-    set(handles.inputPanel, 'Visible', 'on');
-end
+
 
 % --- Executes on button press in one.
 function one_Callback(hObject, eventdata, handles)
@@ -211,6 +228,28 @@ function zero_Callback(hObject, eventdata, handles)
 % hObject    handle to zero (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on slider movement.
+function toggle_Callback(hObject, eventdata, handles)
+% hObject    handle to toggle (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function toggle_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to toggle (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
 
 
 % --- Executes on button press in select.
@@ -332,12 +371,11 @@ function leftButton_Callback(hObject, eventdata, handles)
 global tv;
 if (tv.volumeSelected == true)
         setCurrentVolume(getCurrentVolume() - 1);
-end
 if (tv.channelSelected == true)
         setCurrentChannel(getCurrentChannel() - 1);
-end
-set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
+end
+end
 
 
 % --- Executes on button press in enterButton.
@@ -352,11 +390,3 @@ function rightButton_Callback(hObject, eventdata, handles)
 % hObject    handle to rightButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global tv;
-if (tv.volumeSelected == true)
-        setCurrentVolume(getCurrentVolume() + 1);
-end
-if (tv.channelSelected == true)
-        setCurrentChannel(getCurrentChannel() + 1);
-end
-set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));

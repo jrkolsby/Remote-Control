@@ -1,4 +1,4 @@
 function r = getCurrentChannel()
-global tv.currentChannel;
+global tv;
 r = tv.currentChannel;
 end

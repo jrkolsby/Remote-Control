@@ -1,4 +1,4 @@
 function setLastChannel(c)
-global tv.lastChannel;
+global tv;
 tv.lastChannel = c;
 end
