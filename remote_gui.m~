@@ -447,9 +447,9 @@ end
 
 % This left button is a representation of pushing the toggle to the left
 % side, although this button does not accurately represent how pushing farther
-% means scrolling faster. When channel and/or volume are pressed down, 
-% pressing this button will decrease the values of the volume or channel. 
-% When input is selected, this button flips through the possible input options.
+. When channel and/or volume are pressed down, pressing this button
+% will decrease the values of the volume or channel. When input is
+% selected, this button flips through the possible input options.
 function leftButton_Callback(hObject, eventdata, handles)
 % hObject    handle to leftButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -492,10 +492,9 @@ function enterButton_Callback(hObject, eventdata, handles)
 
 
 % This right button is a representation of pushing the toggle to the right
-% side, although this button does not accurately represent how pushing farther
-% means scrolling faster. When channel and/or volume are pressed down, 
-% pressing this button will decrease the values of the volume or channel. 
-% When input is selected, this button flips through the possible input options.
+% side. When channel and/or volume are pressed down, pressing this button
+% will decrease the values of the volume or channel. When input is
+% selected, this button flips through the possible input options.
 function rightButton_Callback(hObject, eventdata, handles)
 % hObject    handle to rightButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
