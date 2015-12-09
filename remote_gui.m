@@ -23,7 +23,7 @@ function varargout = remote_gui(varargin)
 
 % Edit the above text to modify the response to help remote_gui
 
-% Last Modified by GUIDE v2.5 06-Dec-2015 20:11:50
+% Last Modified by GUIDE v2.5 09-Dec-2015 17:26:28
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -361,19 +361,16 @@ if (tv.volumeSelected)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-% --- Executes on button press in select.
-function select_Callback(hObject, eventdata, handles)
-% hObject    handle to select (see GCBO)
+% --- Executes on button press in ccbutton.
+function ccbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to ccbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes on button press in pushbutton23.
-function pushbutton23_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton23 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
+if (strcmp(get(handles.closedCaptioning, 'Visible'),'off'))
+    set(handles.closedCaptioning, 'Visible', 'on')
+else
+    set(handles.closedCaptioning, 'Visible', 'off')
+end
 
 % --- Executes on button press in undo.
 function undo_Callback(hObject, eventdata, handles)
@@ -402,27 +399,19 @@ function power_ButtonDownFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-
-% --------------------------------------------------------------------
-function Untitled_1_Callback(hObject, eventdata, handles)
-% hObject    handle to Untitled_1 (see GCBO)
+% --- Executes on selection change in menuBox.
+function menuBox_Callback(hObject, eventdata, handles)
+% hObject    handle to menuBox (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-
-% --- Executes on selection change in listbox1.
-function listbox1_Callback(hObject, eventdata, handles)
-% hObject    handle to listbox1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns listbox1 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from listbox1
+% Hints: contents = cellstr(get(hObject,'String')) returns menuBox contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from menuBox
 
 
 % --- Executes during object creation, after setting all properties.
-function listbox1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to listbox1 (see GCBO)
+function menuBox_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to menuBox (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -453,15 +442,6 @@ function channelList_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-
-% --- Executes on button press in pushbutton26.
-function pushbutton26_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton26 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of pushbutton26
 
 
 
