@@ -79,18 +79,25 @@ function power_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 setCurrentChannel(5);
+setLastChannel(5);
 setCurrentVolume(10);
+setLastVolume(5);
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 global tv;
 tv.channelSelected = false;
 tv.volumeSelected = false;
 tv.inputSelected = false;
+tv.inputIndex = 1;
 set(handles.inputPanel, 'Visible', 'off');
 if (strcmp(get(handles.baseScreen, 'Visible'),'on'))
     set(handles.baseScreen, 'Visible', 'off');
 else
     set(handles.baseScreen, 'Visible', 'on');
 end
+if (strcmp(get(handles.channels, 'Visible'),'on'))
+    set(handles.channels, 'Visible', 'off');
+end
+
 
 % --- Executes on button press in menu.
 function menu_Callback(hObject, eventdata, handles)
@@ -109,6 +116,7 @@ function channel_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global tv;
+setLastChannelNumber(0);
 if (tv.channelSelected == false)
     tv.channelSelected = true;
 else 
@@ -127,6 +135,7 @@ function volume_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global tv;
+setLastVolumeNumber(0);
 if (tv.volumeSelected == false)
     tv.volumeSelected = true;
 else 
@@ -138,10 +147,13 @@ function input_Callback(hObject, eventdata, handles)
 % hObject    handle to inputPanel (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global tv;
 if (strcmp(get(handles.inputPanel, 'Visible'),'on'))
     set(handles.inputPanel, 'Visible', 'off');
+    tv.inputSelected = false;
 else
     set(handles.inputPanel, 'Visible', 'on');
+    tv.inputSelected = true;
 end
 
 % --- Executes on button press in one.
@@ -149,19 +161,62 @@ function one_Callback(hObject, eventdata, handles)
 % hObject    handle to one (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 1;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 1;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
+
+
 
 % --- Executes on button press in two.
 function two_Callback(hObject, eventdata, handles)
 % hObject    handle to two (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 2;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 2;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 % --- Executes on button press in three.
 function three_Callback(hObject, eventdata, handles)
 % hObject    handle to three (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 3;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 3;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 
 % --- Executes on button press in four.
@@ -169,27 +224,80 @@ function four_Callback(hObject, eventdata, handles)
 % hObject    handle to four (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 4;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 4;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 % --- Executes on button press in five.
 function five_Callback(hObject, eventdata, handles)
 % hObject    handle to five (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 5;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 5;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 % --- Executes on button press in six.
 function six_Callback(hObject, eventdata, handles)
 % hObject    handle to six (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 6;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 6;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 % --- Executes on button press in eight.
 function eight_Callback(hObject, eventdata, handles)
 % hObject    handle to eight (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 8;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 8;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 
 % --- Executes on button press in seven.
@@ -197,6 +305,20 @@ function seven_Callback(hObject, eventdata, handles)
 % hObject    handle to seven (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 7;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 7;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 
 % --- Executes on button press in nine.
@@ -204,14 +326,40 @@ function nine_Callback(hObject, eventdata, handles)
 % hObject    handle to nine (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10 + 9;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10 + 9;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 % --- Executes on button press in zero.
 function zero_Callback(hObject, eventdata, handles)
 % hObject    handle to zero (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+global tv;
+if (tv.channelSelected)
+    setLastChannel(getCurrentChannel());
+    tv.channelNumber = tv.lastChannelNumber * 10;
+    setLastChannelNumber(tv.channelNumber);
+    setCurrentChannel(tv.channelNumber);
+end
+if (tv.volumeSelected)
+    setLastVolume(getCurrentVolume());
+    tv.volumeNumber = tv.lastVolumeNumber * 10;
+    setLastVolumeNumber(tv.volumeNumber);
+    setCurrentVolume(tv.volumeNumber);
+end
+set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 % --- Executes on button press in select.
 function select_Callback(hObject, eventdata, handles)
@@ -232,6 +380,18 @@ function undo_Callback(hObject, eventdata, handles)
 % hObject    handle to undo (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+global tv;
+if (tv.volumeSelected)
+        curVol = getCurrentVolume();
+        setCurrentVolume(getLastVolume());
+        setLastVolume(curVol);
+end
+if (tv.channelSelected)
+    curChann = getCurrentChannel();
+    setCurrentChannel(getLastChannel());
+    setLastChannel(curChann);
+end
+set(handles.infobox, 'String', strcat('Channel: ', int2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 
 
@@ -281,9 +441,6 @@ function channelList_Callback(hObject, eventdata, handles)
 
 % Hints: contents = cellstr(get(hObject,'String')) returns channelList contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from channelList
-a = get(handles.channelList, 'Value');
-disp(a);
-set(handles.infobox, 'String', strcat('Channel: ', int2str(a)));
 
 % --- Executes during object creation, after setting all properties.
 function channelList_CreateFcn(hObject, eventdata, handles)
@@ -307,35 +464,37 @@ function pushbutton26_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of pushbutton26
 
 
-% --- Executes on button press in togglebutton2.
-function togglebutton2_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton2
-
-
-% --- Executes on button press in togglebutton3.
-function togglebutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton3 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton3
-
 
 % --- Executes on button press in leftButton.
 function leftButton_Callback(hObject, eventdata, handles)
 % hObject    handle to leftButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+optionsdata = ['TV  '; 'DVD ';'Xbox'];
+options = cellstr(optionsdata);
+setLastVolumeNumber(0);
+setLastChannelNumber(0);
 global tv;
 if (tv.volumeSelected == true)
+        setLastVolume(getCurrentVolume());
         setCurrentVolume(getCurrentVolume() - 1);
 end
 if (tv.channelSelected == true)
+        setLastChannel(getCurrentChannel);
         setCurrentChannel(getCurrentChannel() - 1);
+end
+if (tv.inputSelected == true)
+    if (tv.inputSelected == true)
+        if (strcmp(get(handles.inputPanel,'Visible'),'on'))
+            if (tv.inputIndex == 1)
+                a = size(options);
+                tv.inputIndex = a(1,1);
+             else
+            tv.inputIndex = tv.inputIndex - 1;
+             end
+        end
+    set(handles.inputBox,'String', options(tv.inputIndex,1));
+    end
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
@@ -353,11 +512,29 @@ function rightButton_Callback(hObject, eventdata, handles)
 % hObject    handle to rightButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+optionsdata = ['TV  '; 'DVD ';'Xbox'];
+options = cellstr(optionsdata);
+setLastVolumeNumber(0);
+setLastChannelNumber(0);
 global tv;
 if (tv.volumeSelected == true)
+        setLastVolume(getCurrentVolume);
         setCurrentVolume(getCurrentVolume() + 1);
 end
 if (tv.channelSelected == true)
+        setLastChannel(getCurrentChannel);
         setCurrentChannel(getCurrentChannel() + 1);
+end
+if (tv.inputSelected == true)
+
+    if (strcmp(get(handles.inputPanel,'Visible'),'on'))
+        a = size(options);
+        if (tv.inputIndex == a(1, 1))
+            tv.inputIndex = 1;
+        else
+            tv.inputIndex = tv.inputIndex + 1;
+        end
+    end
+    set(handles.inputBox,'String', options(tv.inputIndex,1));
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
