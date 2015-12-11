@@ -1,4 +1,6 @@
-
+% UNIS:adb2184, bxh2102, jrk2181, jll2219, ljt2130
+% Represents a prototype of our simplified remote. 
+%
 function varargout = remote_gui(varargin)
 % REMOTE_GUI MATLAB code for remote_gui.fig
 %      REMOTE_GUI, by itself, creates a new REMOTE_GUI or raises the existing
@@ -73,7 +75,9 @@ function varargout = remote_gui_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
-% --- Executes on button press in power.
+% The power button on our remote.
+% This button sets up the television screen and volume and channel defaults
+% on start and closes open screens (input, channel) upon close.
 function power_Callback(hObject, eventdata, handles)
 % hObject    handle to power (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -99,7 +103,8 @@ if (strcmp(get(handles.channels, 'Visible'),'on'))
 end
 
 
-% --- Executes on button press in menu.
+% The menu button brings up the menu screen (currently equipped with a 
+% list box used to represent the menu)
 function menu_Callback(hObject, eventdata, handles)
 % hObject    handle to menu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -110,7 +115,11 @@ else
     set(handles.mainMenu, 'Visible', 'on');
 end
 
-% --- Executes on button press in channel.
+% Pressing the channel button allows the channel number to be changed, and 
+% brings up the channel screen (a list of channels). In this model, a
+% non-functioning list of channels is used to represent this list.
+% Pressing the channel button again leaves the channel screen, and channels
+% can no longer be changed.
 function channel_Callback(hObject, eventdata, handles)
 % hObject    handle to channel (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -129,7 +138,8 @@ else
 end
 
 
-% --- Executes on button press in volume.
+% Pressing the volume button allows the volume number to be changed, and
+% pressing again disables this function.
 function volume_Callback(hObject, eventdata, handles)
 % hObject    handle to volume (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -142,7 +152,8 @@ else
     tv.volumeSelected = false;
 end
 
-% --- Executes on button press in inputPanel.
+% The input button brings up / takes away the input panel,and allows /
+% disables the toggling function between inputs.
 function input_Callback(hObject, eventdata, handles)
 % hObject    handle to inputPanel (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -156,7 +167,7 @@ else
     tv.inputSelected = true;
 end
 
-% --- Executes on button press in one.
+% Appends the number one to the channel number or volume number.
 function one_Callback(hObject, eventdata, handles)
 % hObject    handle to one (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -178,7 +189,7 @@ set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), 
 
 
 
-% --- Executes on button press in two.
+% Appends the number two to the channel number or volume number.
 function two_Callback(hObject, eventdata, handles)
 % hObject    handle to two (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -198,7 +209,7 @@ if (tv.volumeSelected)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-% --- Executes on button press in three.
+% Appends the number three to the channel number or volume number.
 function three_Callback(hObject, eventdata, handles)
 % hObject    handle to three (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -219,7 +230,7 @@ end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 
-% --- Executes on button press in four.
+% Appends the number four to the channel number or volume number.
 function four_Callback(hObject, eventdata, handles)
 % hObject    handle to four (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -239,7 +250,7 @@ if (tv.volumeSelected)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-% --- Executes on button press in five.
+% Appends the number five to the channel number or volume number.
 function five_Callback(hObject, eventdata, handles)
 % hObject    handle to five (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -259,7 +270,7 @@ if (tv.volumeSelected)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-% --- Executes on button press in six.
+% Appends the number six to the channel number or volume number.
 function six_Callback(hObject, eventdata, handles)
 % hObject    handle to six (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -279,7 +290,7 @@ if (tv.volumeSelected)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-% --- Executes on button press in eight.
+% Appends the number eight to the channel number or volume number.
 function eight_Callback(hObject, eventdata, handles)
 % hObject    handle to eight (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -299,8 +310,7 @@ if (tv.volumeSelected)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-
-% --- Executes on button press in seven.
+% Appends the number seven to the channel number or volume number.
 function seven_Callback(hObject, eventdata, handles)
 % hObject    handle to seven (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -321,7 +331,7 @@ end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
 
-% --- Executes on button press in nine.
+% Appends the number nine to the channel number or volume number.
 function nine_Callback(hObject, eventdata, handles)
 % hObject    handle to nine (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -341,7 +351,7 @@ if (tv.volumeSelected)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-% --- Executes on button press in zero.
+% Appends the number zero to the channel number or volume number.
 function zero_Callback(hObject, eventdata, handles)
 % hObject    handle to zero (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -361,7 +371,8 @@ if (tv.volumeSelected)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-% --- Executes on button press in ccbutton.
+% Enables/disables closed captioning. Closed captioning stays enabled/
+% disabled regardless of whether the power is turned on or off. 
 function ccbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to ccbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -372,7 +383,8 @@ else
     set(handles.closedCaptioning, 'Visible', 'off')
 end
 
-% --- Executes on button press in undo.
+% When undo is pressed, either the channel or volume or both revert to their last states,
+% depending on whether channel or volume or both are pressed down.
 function undo_Callback(hObject, eventdata, handles)
 % hObject    handle to undo (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -399,7 +411,7 @@ function power_ButtonDownFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% --- Executes on selection change in menuBox.
+% Our menuBox is a dummy listbox representing an actual menu box.
 function menuBox_Callback(hObject, eventdata, handles)
 % hObject    handle to menuBox (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -422,7 +434,7 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on selection change in channelList.
+% Our channel list is a dummy list representing the list of channels.
 function channelList_Callback(hObject, eventdata, handles)
 % hObject    handle to channelList (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -482,9 +494,10 @@ if (tv.inputSelected == true)
 end
 set(handles.infobox,'String',strcat('Channel: ' , num2str(getCurrentChannel()), ' Volume: ' , num2str(getCurrentVolume())));
 
-
-
-% --- Executes on button press in enterButton.
+% The enterButton would be used to select objects from a menu list or
+% channel list. Since our lists are dummy lists used to represent a list of
+% channels a cable company may provide, this enter button has no function
+% in this prototype.
 function enterButton_Callback(hObject, eventdata, handles)
 % hObject    handle to enterButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
